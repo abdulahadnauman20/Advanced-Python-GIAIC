@@ -84,9 +84,9 @@ st.sidebar.write(f"Failed attempts: {st.session_state.failed_attempts}/3")
 
 if st.session_state.lockout_until and datetime.now() < st.session_state.lockout_until:
     remaining = (st.session_state.lockout_until - datetime.now()).seconds
-    st.sidebar.error(f"🔒 Locked for {remaining//60}m {remaining%60}s")
+    st.sidebar.error(f" Locked for {remaining//60}m {remaining%60}s")
 else:
-    st.sidebar.success("🟢 System ready")
+    st.sidebar.success(" System ready")
 
 if choice == "Home":
     st.title(" Secure Data Encryption System")
@@ -209,7 +209,7 @@ elif choice == "Retrieve Data":
                     st.experimental_rerun()
 
 elif choice == "Login":
-    st.title("🔑 Reauthorization Required")
+    st.title(" Reauthorization Required")
     
     if st.session_state.lockout_until and datetime.now() < st.session_state.lockout_until:
         remaining = (st.session_state.lockout_until - datetime.now()).seconds
